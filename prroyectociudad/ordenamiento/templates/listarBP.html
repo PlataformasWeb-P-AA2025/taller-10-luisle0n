@@ -1,0 +1,19 @@
+<h1>Parroquias y sus Barrios</h1>
+<ul>
+    {% for parroquia in parroquias %}
+        <li><strong>{{ parroquia.nombre }} ({{ parroquia.tipo }})</strong>
+            <ul>
+                {% if parroquia.barrios %}
+                    {% for barrio in parroquia.barrios %}
+                        <li>{{ barrio.nombre }} - {{ barrio.numero_viviendas }} viviendas</li>
+                    {% endfor %}
+                {% else %}
+                    <li>Sin barrios registrados</li>
+                {% endif %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- Enlace para regresar a la vista inicial -->
+<h3><a href="{% url 'vista_inicial' %}">Regresar</a></h3>
